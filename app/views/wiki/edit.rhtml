@@ -1,0 +1,78 @@
+<%- 
+  @title = "Die Seite \"#{@page.name.escapeHTML}\" bearbeiten".html_safe
+  @content_width = 720
+  @hide_navigation = true
+-%>
+
+	<% form_tag({ :action => 'save', :web => @web.address, :id => @page.name },
+	             { 'id' => 'editForm', 'method' => 'post', 'onsubmit' => 'cleanAuthorName()',
+	               'accept-charset' => 'utf-8' }) do %>
+	   <div>	
+		<textarea name="content" id="content" rows="24" cols="60"><%= h(flash[:content] || 
+                         (params['content'] ?  params['content'] : @page.content).purify) %></textarea>
+<% if @page_name != 'HomePage' -%>
+	   <p>
+	      <%= check_box_tag :alter_title, value = "1", checked=false,
+	         'onchange' => "toggleVisibility();" %> <label class="alter-label" for="alter_title">Titel der Seite ändern</label><br/>
+	      <span id="title_change" style="display:none"><label for="new_name">Neuer Titel:</label> <%= text_field_tag :new_name, h(@page.name.purify),
+			        :onblur => "addRedirect();"  %></span>
+	   </p>
+<% else -%>
+       <%= hidden_field_tag 'new_name', @page_name %>
+<% end%> 
+		<div id="editFormButtons">
+			<input style="width:40%;color:black;" type="submit" value="Speichern" accesskey="s"/> als 
+			<%= text_field_tag :author, h(@author.purify), 
+			        :onfocus => "this.value == 'AnonymousCoward' ? this.value = '' : true;",
+			        :onblur  => "this.value == '' ? this.value = 'AnonymousCoward' : true",
+							:style => "width:40%;" %>
+			<br/>
+			<span>
+				<%= link_to('Abbrechen', {:web => @web.address, :action => 'cancel_edit', :id => @page.name},
+				      {:accesskey => 'c'}) %> 
+                <span class="unlock">(gibt die Seite wieder frei)</span>
+			</span>
+		</div>
+	   </div>
+	<%- end -%>
+
+<div id="MarkupHelp">
+<%= render(:file => "#{@web.markup}_help") -%>
+<%= render(:file => 'wiki_words_help') unless @web.brackets_only? -%>
+</div>
+
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+function toggleVisibility() {
+  var span = document.getElementById('title_change');
+  if (span.style.display =='inline') {
+     span.style.display ='none';
+     document.getElementById('new_name').value = "<%= escape_javascript(@page.name) %>";
+     var content = document.getElementById('content').value
+     document.getElementById('content').value = content.replace(/\[\[!redirects <%= Regexp.escape(@page.name).gsub('/', '\\/') %>\]\]\n/, '')
+     }
+  else
+     span.style.display ='inline'
+}
+
+function addRedirect(){
+  var e = document.getElementById('new_name').value;
+  if ( e != "<%= escape_javascript(@page.name) %>" && e != '') {
+    var content = document.getElementById('content');
+    content.value = '[[!redirects <%= escape_javascript(@page.name) %>]]\n' + content.value
+    }
+}
+
+function cleanAuthorName() {
+  if (document.getElementById('authorName').value == "") {
+    document.getElementById('authorName').value = 'AnonymousCoward';
+  }
+}
+
+document.forms["editForm"].elements["content"].focus();
+<%- if [:markdownMML, :markdownPNG, :markdown].include?(@web.markup) and !@page.categories.include?('S5-slideshow') -%>
+setupSVGedit('<%= compute_public_path("editor/svg-editor.html", "svg-edit").split(/\?/)[0] %>');
+addS5button('<%= @page.name.escapeHTML %>');
+<%- end -%>
+//--><!]]>
+</script>

@@ -1,0 +1,34 @@
+<%
+def list_item(text, link_options, description, accesskey = nil)
+  link_options[:controller] = 'wiki'
+  link_options[:web] = @web.address
+  link_to_unless_current(text, link_options, :title => description, :accesskey => accesskey) {
+    content_tag('b', text, 'title' => description, 'class' => 'navOn') 
+  }
+end
+%>
+
+<section class="WikiNavigation span-8">
+    <span class="skipNav"><a href='#navEnd'>Skip the Navigation Links</a> | </span>
+<%- if params['action'] != 'published' then -%>
+    <%= list_item 'Startseite', {:action => 'show', :id => 'HomePage'}, 'Startseite', 'H' %> | 
+    <%= list_item 'Alle Seiten', {:action => 'list'}, 'Seiten alphabetisch sortiert', 'A' %> | 
+    <%= list_item 'Zuletzt geändert', {:action =>'recently_revised'}, 'Seiten sortiert nach den letzten Änderungen', 'U' %> |
+    <%= list_item 'Autoren', {:action => 'authors'}, 'Wer schrieb was' %> | 
+    <%= list_item 'Feeds', {:action => 'feeds'}, 'Änderungen mit Atom verfolgen' %> | 
+    <%= list_item 'Export', {:action => 'export'}, 'Ein Zip-Archiv mit allen Seiten dieses Wikis downloaden', 'X' %>
+		 </section>
+   	 <section id="WikiSearch" class="last">
+    <% form_tag({ :controller => 'wiki', :action => 'search', :web => @web.address},
+                 {'id' => 'navigationSearchForm', 'method' => 'get', 'accept-charset' => 'utf-8' }) do %>
+      <fieldset class="search"><input type="text" id="searchField" name="query" value="Suche"
+             onfocus="this.value == 'Suche' ? this.value = '' : true"
+             onblur="this.value == '' ? this.value = 'Suche' : true" /></fieldset>
+    <% end %>
+<%- else -%>
+    <%= list_item 'Startseite', {:action => 'published', :id => 'HomePage'}, 'Startseite', 'H' %> | 
+    <%= list_item 'Feeds', {:action => 'feeds'}, 'Änderungen mit Atom verfolgen' %>
+<% end-%>
+  <span id='navEnd'></span>
+</section>
+

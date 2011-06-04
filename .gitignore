@@ -1,0 +1,14 @@
+.project
+.bundle
+secret
+cache/*
+config/database.yml
+tmp/*
+db/*.sqlite3
+app/views/layouts/footer.html
+app/views/layouts/header.html
+public/images/*
+#for dev files
+public/css
+public/js
+*~

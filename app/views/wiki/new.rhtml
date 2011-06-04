@@ -1,0 +1,39 @@
+<%- 
+  @title = "Die Seite \"#{WikiWords.separate(@page_name).escapeHTML}\" anlegen".html_safe
+  @content_width = 720
+  @hide_navigation = true
+-%>
+
+<div id="editForm">
+	<% form_tag({ :action => 'save', :web => @web.address, :id => @page_name },
+	        { 'id' => 'editForm', 'method' => 'post', 'onsubmit' => 'cleanAuthorName();', 'accept-charset' => 'utf-8' }) do %>
+	
+	    <textarea name="content" id="content" rows="24" cols="60"><%= h(flash[:content] || 
+                     params['content'] ?  params['content'].purify : '' ) %></textarea>
+		<div id="editFormButtons">
+		    <input style="width:40%;color:black;" type="submit" value="Speichern" accesskey="s"/> als 
+		    <%= text_field_tag :author, @author, 
+		        :onfocus => "this.value == 'AnonymousCoward' ? this.value = '' : true;",
+		        :onblur  => "this.value == '' ? this.value = 'AnonymousCoward' : true",
+						:style => "width:40%;" %> 
+        </div>
+	<%- end -%>
+</div>
+
+<div id="MarkupHelp">
+<%= render(:file => "#{@web.markup}_help") -%>
+<%= render(:file => 'wiki_words_help') unless @web.brackets_only? -%>
+</div>
+
+<script type="text/javascript">
+function cleanAuthorName() {
+  if (document.getElementById('authorName').value == "") {
+    document.getElementById('authorName').value = 'AnonymousCoward';
+  }
+}
+document.forms["editForm"].elements["content"].focus();
+<%- if [:markdownMML, :markdownPNG, :markdown].include?(@web.markup) -%>
+setupSVGedit('<%= compute_public_path("editor/svg-editor.html", "svg-edit").split(/\?/)[0] %>');
+addS5button('<%= @page_name.escapeHTML %>');
+<%- end -%>
+</script>

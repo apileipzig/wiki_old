@@ -1,0 +1,82 @@
+<%= render :file => 'layouts/header.html' %>	
+		<section id="Page" class="container pane-lighter" role="main">
+		<!-- start the original  WIKI-Nav -->		
+		<!-- <div class="clear onepix">&nbsp;</div> -->
+		<%= render(:file => 'navigation') unless @web.nil? || @hide_navigation %>
+		<!-- End of WIKI-Nav-->
+		 	<article class="span-8">
+		 		<!--<header>
+	 			<h1><%- if @page and (@page.name == 'HomePage') and %w( show published print ).include?(@action_name) -%>
+      <%= h(@web.name) + (@show_diff ? ' (changes)' : '') %>
+    <%- elsif @web -%>
+      <%= @title %>
+    <%- else -%>
+      <%= @title %>
+    <%- end %></h1>
+				</header>-->
+
+<%- if flash[:info] -%>
+  <div class="notice"><%= escape_preserving_linefeeds flash[:info] %></div>
+<%- end -%>
+
+<%- if @error or flash[:error] -%> 
+    <div class="error"><%= escape_preserving_linefeeds(@error || flash[:error]) %></div>
+<%- end -%>
+				<%= @content_for_layout %>
+			</article >
+			
+			<aside class="span-4 last">
+					<h1>Inhalt</h1>
+					<section class="submenu">
+					 <h1 class="hide">Unter-Navigation</h1>
+					 <ul class="subnav">
+					 	<li><a href="/" title="Gehe zur Seite: API.LEIPZIG-Startseite">API.LEIPZIG-Startseite</a>
+					 	<li><a href="/wiki/show/HomePage" title="Gehe zur Seite: Wiki-Startseite">Wiki-Startseite</a>
+					 	<li><a href="/wiki/show/Leipziger-Agenda-21" title="Gehe zur Seite: Leipziger Agenda 21">Leipziger Agenda 21</a></li>
+					 	<li><a href="/wiki/show/Was-ist-die-API-LEIPZIG" title="Gehe zur Seite: Was ist die API.LEIPZIG?">Was ist die API.LEIPZIG?</a></li>
+					 	<!--
+					 	<li class="current"><a href="#" title="Gehe zur Seite: Interne Links">Interne Links</a>
+					 		<ul>
+					 			<li><a class="current" href="#" title="Textlinks">Textlinks</a></li>
+					 			<li><a href="#" title="Warum das Ganze">Interne Verständigung</a></li>
+					 			<li><a href="#" title="Strukturierung">Strukturierung</a></li>
+								<li><a href="#" title="Offene Fragen: Wer bekommt den Key">Offene Fragen: Wer bekommt den Key?</a></li>
+					 		</ul>
+					 	</li>
+					 	-->
+					 	<li><a href="/wiki/show/FAQ" title="Gehe zur Seite: Häufig gestellte Fragen">FAQ</a></li>
+					 	<li><a href="/wiki/show/Datenquellen" title="Gehe zur Seite: Datenquellen">Datenquellen</a></li>
+					 	<li><a href="/wiki/show/Anwendungen" title="Gehe zur Seite: Anwendungen">Anwendungen</a></li>
+					 	<li><a href="/wiki/show/Dokumentation" title="Gehe zur Seite: Dokumentation">Dokumentation</a>
+<!--
+					 		<ul>
+					 			<li><a href="#" title="Entstehung der API.LEIPZIG">Entstehung API.LEIPZIG</a></li>
+					 			<li><a href="#" title="Warum das Ganze">Warum das Ganze?</a></li>
+					 			<li><a href="#" title="Aussichten">Aussichten</a></li>
+								<li><a href="#" title="Beteilgte an der API">Kreative Köpfe hinter API.LEIPZIG</a></li>
+					 		</ul>
+-->
+					 	</li>
+					 	<li><a href="/wiki/show/Beteiligte" title="Gehe zur Seite: Beteiligte">Beteiligte</a>
+					 	<li><a href="/wiki/show/Nutzungsbedingungen" title="Gehe zur Seite: Nutzungsbedingungen">Nutzungsbedingungen</a>
+					 </ul>
+					</section>
+<!--					 
+					<section class="Banner">
+						<hgroup>
+						<h1>Normaler Banner</h1>
+						<h2>Werbung? Mitglieder?</h2>
+						</hgroup>
+					</section>
+					
+					<section class="Banner success">
+						<p>Eigentlich ein Banner. Aber diese Banner (mit eigenem Style) in der Sidebar, können mit diversen anderen Styles (Blueprint: success, error, notice, info) überschrieben werden! good to know!</p>
+					</section>	
+-->					
+			</aside>
+		</section>
+    <section>
+<%= javascript_include_tag 'page_helper' %>
+<%= javascript_include_tag :defaults %>
+<%= render :file => 'layouts/footer.html' %>
+
