@@ -12,3 +12,5 @@ public/images/*
 public/css
 public/js
 *~
+log/
+storage/

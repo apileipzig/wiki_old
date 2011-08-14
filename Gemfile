@@ -1,6 +1,5 @@
 source "http://rubygems.org"
 gem "itextomml", ">=1.4.5"
-gem "mongrel", ">=1.2.0.pre2"
 gem "rubyzip"
 gem "RedCloth", ">=4.0.0"
 gem "erubis"
@@ -20,6 +19,7 @@ group :development do
 end
 
 group :production do
+  gem "thin"
   gem "mysql", "~> 2.8.1"
 end
 
