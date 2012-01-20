@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Wiki 
 
   cattr_accessor :storage_path, :logger

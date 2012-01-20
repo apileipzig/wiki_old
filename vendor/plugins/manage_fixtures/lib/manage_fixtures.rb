@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 def write_yaml_fixtures_to_file(sql, fixture_name)
   i = "000"
   File.open("#{RAILS_ROOT}/dump/fixtures/#{fixture_name}.yml", 'w' ) do |file|

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Web < ActiveRecord::Base
   ## Associations
 

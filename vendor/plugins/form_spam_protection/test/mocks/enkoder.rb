@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.join(File.dirname(__FILE__), '../../vendor/enkoder/lib/enkoder')
 
 module ActionView

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Page < ActiveRecord::Base
   belongs_to :web
   has_many :revisions, :order => 'id', :dependent => :destroy

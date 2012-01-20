@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # this script is from here: 
 # http://www.pixel-webarts.de/blogspot/deutsche-monatsnamen-und-wochentage-in-ruby-on-rails
 

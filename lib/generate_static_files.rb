@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 marker_header = '<!-- /#Start_Content_Marker - DO NOT (RE)MOVE! -->'
 marker_footer = '<!-- /#End_Content_Marker - DO NOT (RE)MOVE! -->'
 

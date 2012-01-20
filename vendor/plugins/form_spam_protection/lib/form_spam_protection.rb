@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'form_tag_helper_extensions'
 module FormSpamProtection
   module ClassMethods

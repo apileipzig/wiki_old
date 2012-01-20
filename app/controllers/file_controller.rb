@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Controller responsible for serving files and pictures.
 
 require 'zip/zip'

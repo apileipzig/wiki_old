@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Author < String
   attr_accessor :ip
   attr_reader :name

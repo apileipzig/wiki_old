@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CacheSweepingHelper
   
   def expire_cached_page(web, page_name)

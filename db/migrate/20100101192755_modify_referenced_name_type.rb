@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModifyReferencedNameType < ActiveRecord::Migration
   def self.up
     change_column :wiki_references, :referenced_name, :string, :limit => 255

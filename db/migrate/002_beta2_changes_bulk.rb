@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Beta2ChangesBulk < ActiveRecord::Migration
   def self.up
     add_index "revisions", "page_id"

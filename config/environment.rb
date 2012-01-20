@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #####
 # Bootstrap the Rails environment, frameworks, and default configuration
 ####

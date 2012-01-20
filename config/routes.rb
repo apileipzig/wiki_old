@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Create a route to DEFAULT_WEB, if such is specified; also register a generic route
 def connect_to_web(map, generic_path, generic_routing_options)
   if defined? DEFAULT_WEB

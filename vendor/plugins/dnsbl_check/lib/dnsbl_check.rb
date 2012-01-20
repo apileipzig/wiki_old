@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This plugin checks if the client is listed in DNSBLs (DNS Blackhole Lists).
 # These are lists of IP addresses misbehaving. There are many DNSBLs, some are more
 # aggressive than others. More information at http://en.wikipedia.org/wiki/DNSBL

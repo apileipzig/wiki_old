@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This class maintains the state of wiki references for newly created or newly deleted pages
 class PageObserver < ActiveRecord::Observer
   

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Container for a set of pages with methods for manipulation.
 
 class PageSet < Array

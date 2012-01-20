@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require "rdoc/markup/simple_markup"
   require 'rdoc/markup/simple_markup/to_html'

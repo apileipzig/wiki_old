@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Unit tests for ApplicationController (the abstract controller class)
 
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper')

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'chunks/wiki'
 
 # Includes the contents of another page for rendering.

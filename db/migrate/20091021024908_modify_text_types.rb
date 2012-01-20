@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModifyTextTypes < ActiveRecord::Migration
   def self.up
     unless adapter_name.eql?('PostgreSQL')

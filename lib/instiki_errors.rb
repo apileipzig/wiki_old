@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Model methods that want to rollback transactions gracefully 
 # (i.e, returning the user back to the form from which the request was posted)
 # should raise Instiki::ValidationError.

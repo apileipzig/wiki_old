@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class WikiReference < ActiveRecord::Base
 
   LINKED_PAGE = 'L'

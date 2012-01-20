@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #coding: utf-8
 # Contains all the methods for finding and replacing wiki words
 

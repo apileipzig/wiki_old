@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Beta1Schema < ActiveRecord::Migration
   def self.up
     create_table "pages", :force => true do |t|

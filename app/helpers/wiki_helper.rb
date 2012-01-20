@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module WikiHelper
 
   def navigation_menu_for_revision

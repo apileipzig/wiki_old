@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # == Introduction
 #
 # This module provides sanitization of XHTML+MathML+SVG 

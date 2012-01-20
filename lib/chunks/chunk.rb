@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #require 'uri/common'
 
 # A chunk is a pattern of text that can be protected

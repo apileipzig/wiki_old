@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ENV['RAILS_ENV'] = 'test'
 
 # Expand the path to environment so that Ruby does not load it multiple times

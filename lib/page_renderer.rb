@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'xhtmldiff'
 
 # Temporary class containing all rendering stuff from a Revision 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'chunks/chunk'
 
 # This wiki chunk matches arbitrary URIs, using patterns from the Ruby URI modules.

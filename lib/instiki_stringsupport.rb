@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Some useful additions to the String class
 
 class String

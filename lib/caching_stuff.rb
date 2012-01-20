@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # based on http://pastie.org/49840
 # override the fragment_cache_key method in actionpack/lib/action_controller/caching/fragments.rb
 # to remove hostname in fragment caching
